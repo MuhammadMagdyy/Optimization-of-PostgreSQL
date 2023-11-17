@@ -1,0 +1,25 @@
+----Query 10----
+
+select a.act_id , a.act_fname, a.act_lname, a.act_gender
+from actor a inner join movie_cast mc on a.act_id = mc.act_id inner join movie m on mc.mov_id = m.mov_id
+	where m.mov_title = 'Annie Hall'
+
+
+----Query 11 ----
+select d.dir_fname , d.dir_lname
+from director d inner join movie_direction md on d.dir_id = md.dir_id 
+inner join movie_cast mc on md.mov_id = mc.mov_id inner join 
+	movie m on m.mov_id = mc.mov_id
+where m.mov_title = 'Eyes Wide Shut'
+group by d.dir_fname,d.dir_lname,m.mov_id
+
+
+
+----Query 12 ---
+select m.mov_title
+from movie m inner join movie_direction md 
+on m.mov_id = md.mov_id
+inner join director d on md.dir_id = d.dir_id
+where d.dir_fname = 'Woddy'
+and d.dir_lname = 'Allen';
+
